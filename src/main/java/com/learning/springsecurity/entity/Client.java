@@ -27,7 +27,8 @@ public class Client {
     private int age;
     private String email;
     private String password;
+    @Enumerated(EnumType.STRING)
     @Column(name = "role")
-    private String role;
+    private Role role;
     private Double balance;
 }

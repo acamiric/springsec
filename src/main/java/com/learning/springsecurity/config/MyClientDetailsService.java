@@ -21,7 +21,7 @@ public class MyClientDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Client client = clientRepository.findByEmail(username).orElseThrow(() -> new
             UsernameNotFoundException("Client details not found for the client: " + username));
-        List<GrantedAuthority> authorities = List.of(new SimpleGrantedAuthority(client.getRole()));
+        List<GrantedAuthority> authorities = List.of(new SimpleGrantedAuthority(client.getRole().name()));
         return new org.springframework.security.core.userdetails.User(client.getEmail(), client.getPassword(), authorities);
     }
 }

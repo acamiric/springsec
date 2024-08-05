@@ -1,6 +1,7 @@
 package com.learning.springsecurity.controllers;
 
 import com.learning.springsecurity.entity.Client;
+import com.learning.springsecurity.entity.Role;
 import com.learning.springsecurity.repository.ClientRepository;
 import java.util.List;
 import java.util.Optional;
@@ -44,6 +45,8 @@ public class ClientController {
             String hashPwd = passwordEncoder.encode(client.getPassword());
             client.setPassword(hashPwd);
             client.setBalance(1000.0);
+            //za sada samo useri mogu da se registruju
+            client.setRole(Role.USER);
             Client savedClient = repository.save(client);
 
             if (savedClient.getId() > 0) {

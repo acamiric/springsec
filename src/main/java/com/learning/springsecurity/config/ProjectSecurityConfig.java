@@ -19,7 +19,7 @@ public class ProjectSecurityConfig {
             authorizeHttpRequests(requests ->
                 requests.requestMatchers("/hello", "/error", "/clients/register").permitAll().
                     requestMatchers("/helloAuth", "/clients/**").authenticated().
-                    requestMatchers("/admin").hasAuthority("admin"));
+                    requestMatchers("/admin").hasAuthority("ADMIN"));
         http.formLogin(withDefaults());
         http.httpBasic(withDefaults());
         return http.build();
