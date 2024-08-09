@@ -17,7 +17,7 @@ public class ProjectSecurityConfig {
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable).
             authorizeHttpRequests(requests ->
-                requests.requestMatchers("/hello", "/error", "/clients/register").permitAll().
+                requests.requestMatchers("/hello", "/error", "/clients/register","/game/**").permitAll().
                     requestMatchers("/helloAuth", "/clients/**").authenticated().
                     requestMatchers("/admin").hasAuthority("ADMIN"));
         http.formLogin(withDefaults());

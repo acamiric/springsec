@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/admin")
 public class AdminOnlyController {
 
+    //only for admins
+
     @GetMapping
-    private String hello() {
+    public String hello() {
         return "De si admine";
     }
 }

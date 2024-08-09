@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloAuthenticatedController {
 //controller for authenticated user
     @GetMapping("/helloAuth")
-    private String hello() {
+    public String hello() {
         return "Hola amigo authenticato";
     }
 }

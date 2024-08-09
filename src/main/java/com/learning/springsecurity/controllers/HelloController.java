@@ -8,8 +8,7 @@ public class HelloController {
 //controller for not auth
 
     @GetMapping("/hello")
-    private String hello() {
+    public String hello() {
         return "Hola amigo";
     }
-
 }
